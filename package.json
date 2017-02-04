@@ -1,0 +1,9 @@
+{
+  "name": "fm-story-book-react-components",
+  "version": "1.0.0",
+  "description": "Holds React Components as StoryBook Stories",
+  "main": "index.js",
+  "repository": "https://github.com/fmakdemir/fm-story-book-react-components",
+  "author": "fmakdemir <fmakdemir@gmail.com>",
+  "license": "MIT"
+}
