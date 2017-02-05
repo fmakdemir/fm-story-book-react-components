@@ -7,10 +7,19 @@
   "author": "fmakdemir <fmakdemir@gmail.com>",
   "license": "MIT",
   "devDependencies": {
-    "@kadira/storybook": "^2.35.3"
+    "@kadira/storybook": "^2.35.3",
+    "@kadira/storybook-deployer": "^1.2.0",
+    "css-loader": "^0.26.1",
+    "file-loader": "^0.10.0",
+    "json-loader": "^0.5.4",
+    "less": "^2.7.2",
+    "less-loader": "^2.2.3",
+    "style-loader": "^0.13.1"
   },
   "scripts": {
-    "storybook": "start-storybook -p 9001 -c .storybook"
+    "start": "start-storybook -p 9001 -s static -c .storybook",
+    "build-storybook": "build-storybook -c .storybook -s static -o .out",
+    "deploy-ghpages": "storybook-to-ghpages"
   },
   "dependencies": {
     "react": "^15.4.2",

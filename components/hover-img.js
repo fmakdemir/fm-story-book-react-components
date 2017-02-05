@@ -1,14 +1,13 @@
 import React from 'react';
 import path from 'path';
-// import './hover-img.less';
+import './hover-img.less';
 
 class HoverImg extends React.Component {
 	constructor(props) {
 		super(props);
 		// after construction use setState to apply updates
 		this.state = {
-			hovered: false,
-			img_url: this.props.main
+			hovered: false
 		}
 	}
 
@@ -18,7 +17,12 @@ class HoverImg extends React.Component {
 				onMouseEnter={this.handleHover.bind(this, true)}
 				onMouseLeave={this.handleHover.bind(this, false)} >
 				<div>
-					<img src={this.state.img_url} />
+					{/* load both images with separate tags */}
+					<img src={this.props.main} style={{display: this.state.hovered? 'none': 'block'}}/>
+					{this.props.hover
+						?<img src={this.props.hover} style={{display: this.state.hovered? 'block': 'none'}} />
+						: ''
+					}
 				</div>
 				<div>{this.props.name}</div>
 			</div>
@@ -26,13 +30,12 @@ class HoverImg extends React.Component {
 	}
 
 	handleHover(hovered) {
-		var img_url = this.props.main;
-		if (this.props.hover && hovered) {
-			img_url = this.props.hover;
+		// only activate hover image if it exists and mouse over
+		if (!this.props.hover) {
+			hovered = false;
 		}
 		this.setState({
-			hovered: hovered,
-			img_url: img_url
+			hovered: hovered
 		});
 	}
 }
